@@ -43,6 +43,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(512, 82);
@@ -53,6 +54,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(739, 192);
@@ -63,6 +65,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(814, 264);
@@ -74,6 +77,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(805, 334);
@@ -85,6 +89,7 @@
             // 
             // tID
             // 
+            tID.Anchor = AnchorStyles.None;
             tID.Location = new Point(512, 202);
             tID.Name = "tID";
             tID.Size = new Size(220, 32);
@@ -93,6 +98,7 @@
             // 
             // tAddress
             // 
+            tAddress.Anchor = AnchorStyles.None;
             tAddress.Location = new Point(512, 335);
             tAddress.Name = "tAddress";
             tAddress.Size = new Size(220, 32);
@@ -101,6 +107,7 @@
             // 
             // tName
             // 
+            tName.Anchor = AnchorStyles.None;
             tName.Location = new Point(513, 270);
             tName.Name = "tName";
             tName.Size = new Size(220, 32);
@@ -109,6 +116,7 @@
             // 
             // Exet
             // 
+            Exet.Anchor = AnchorStyles.None;
             Exet.BackColor = Color.Red;
             Exet.ForeColor = Color.White;
             Exet.Location = new Point(317, 507);
@@ -121,6 +129,7 @@
             // 
             // ShowAll
             // 
+            ShowAll.Anchor = AnchorStyles.None;
             ShowAll.Location = new Point(455, 506);
             ShowAll.Name = "ShowAll";
             ShowAll.Size = new Size(136, 40);
@@ -131,6 +140,7 @@
             // 
             // GetPerson
             // 
+            GetPerson.Anchor = AnchorStyles.None;
             GetPerson.Location = new Point(642, 507);
             GetPerson.Name = "GetPerson";
             GetPerson.Size = new Size(91, 40);
@@ -141,6 +151,7 @@
             // 
             // NewP
             // 
+            NewP.Anchor = AnchorStyles.None;
             NewP.Location = new Point(781, 507);
             NewP.Name = "NewP";
             NewP.Size = new Size(136, 40);
