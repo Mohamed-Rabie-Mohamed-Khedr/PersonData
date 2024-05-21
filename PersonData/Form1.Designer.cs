@@ -39,6 +39,10 @@
             ShowAll = new Button();
             GetPerson = new Button();
             NewP = new Button();
+            pictureBox1 = new PictureBox();
+            AddImage = new Button();
+            openFileDialog1 = new OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -119,7 +123,7 @@
             Exet.Anchor = AnchorStyles.None;
             Exet.BackColor = Color.Red;
             Exet.ForeColor = Color.White;
-            Exet.Location = new Point(317, 507);
+            Exet.Location = new Point(318, 421);
             Exet.Name = "Exet";
             Exet.Size = new Size(91, 40);
             Exet.TabIndex = 7;
@@ -130,7 +134,7 @@
             // ShowAll
             // 
             ShowAll.Anchor = AnchorStyles.None;
-            ShowAll.Location = new Point(455, 506);
+            ShowAll.Location = new Point(456, 420);
             ShowAll.Name = "ShowAll";
             ShowAll.Size = new Size(136, 40);
             ShowAll.TabIndex = 8;
@@ -141,7 +145,7 @@
             // GetPerson
             // 
             GetPerson.Anchor = AnchorStyles.None;
-            GetPerson.Location = new Point(642, 507);
+            GetPerson.Location = new Point(643, 421);
             GetPerson.Name = "GetPerson";
             GetPerson.Size = new Size(91, 40);
             GetPerson.TabIndex = 9;
@@ -152,7 +156,7 @@
             // NewP
             // 
             NewP.Anchor = AnchorStyles.None;
-            NewP.Location = new Point(781, 507);
+            NewP.Location = new Point(782, 421);
             NewP.Name = "NewP";
             NewP.Size = new Size(136, 40);
             NewP.TabIndex = 10;
@@ -160,11 +164,39 @@
             NewP.UseVisualStyleBackColor = true;
             NewP.Click += NewPerson_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox1.Location = new Point(985, 202);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(165, 169);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 11;
+            pictureBox1.TabStop = false;
+            // 
+            // AddImage
+            // 
+            AddImage.Anchor = AnchorStyles.None;
+            AddImage.Location = new Point(998, 399);
+            AddImage.Name = "AddImage";
+            AddImage.Size = new Size(136, 40);
+            AddImage.TabIndex = 12;
+            AddImage.Text = "اضافة صورة";
+            AddImage.UseVisualStyleBackColor = true;
+            AddImage.Click += AddImage_Click;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1258, 750);
+            Controls.Add(AddImage);
+            Controls.Add(pictureBox1);
             Controls.Add(NewP);
             Controls.Add(GetPerson);
             Controls.Add(ShowAll);
@@ -182,6 +214,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "person data";
             Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -199,5 +232,8 @@
         private Button ShowAll;
         private Button GetPerson;
         private Button NewP;
+        private PictureBox pictureBox1;
+        private Button AddImage;
+        private OpenFileDialog openFileDialog1;
     }
 }

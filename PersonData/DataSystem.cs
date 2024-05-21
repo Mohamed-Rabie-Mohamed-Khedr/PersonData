@@ -1,10 +1,8 @@
-﻿using System.Net;
-using System.Security.Cryptography;
-using System.Security.Policy;
+﻿using System.Net.NetworkInformation;
 
 internal class DataSystem
 {
-    internal static void NewPerson(TextBox tID, TextBox tAddress, TextBox tName)
+    internal static void NewPerson(TextBox tID, TextBox tAddress, TextBox tName, PictureBox picture)
     {
         if (string.IsNullOrEmpty(tID.Text) || string.IsNullOrEmpty(tAddress.Text) || string.IsNullOrEmpty(tName.Text))
             MessageBox.Show("هل نسيت تكتب بيانات ؟");
@@ -26,16 +24,16 @@ internal class DataSystem
                 using StreamWriter write = new StreamWriter("Save.txt", true);
                 write.WriteLine(tID.Text + ";" + tName.Text + ";" + tAddress.Text);
                 write.Close();
+                picture.Image.Save("images/" + tID.Text + ".jpg");
                 MessageBox.Show("تم الحفظ");
-                tID.Text = "";
-                tAddress.Text = "";
-                tName.Text = "";
+                tID.Text = tAddress.Text = tName.Text = "";
+                picture.Image = null;
                 tID.Focus();
             }
         }
     }
 
-    internal static void GetPerson(TextBox tID, TextBox tAddress, TextBox tName)
+    internal static void GetPerson(TextBox tID, TextBox tAddress, TextBox tName, PictureBox picture)
     {
         if (string.IsNullOrEmpty(tID.Text))
             MessageBox.Show("هل نسيت تكتب رقم القومي؟");
@@ -53,6 +51,7 @@ internal class DataSystem
                 string[] data = tAll.Substring(index, tAll.IndexOf(Environment.NewLine, index) - index).Split(';');
                 tName.Text = data[1];
                 tAddress.Text = data[2];
+                picture.Image = Image.FromFile("images/" + tID.Text + ".jpg");
             }
         }
     }
