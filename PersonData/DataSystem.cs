@@ -1,10 +1,8 @@
-﻿using System.Net.NetworkInformation;
-
-internal class DataSystem
+﻿internal class DataSystem
 {
     internal static void NewPerson(TextBox tID, TextBox tAddress, TextBox tName, PictureBox picture)
     {
-        if (string.IsNullOrEmpty(tID.Text) || string.IsNullOrEmpty(tAddress.Text) || string.IsNullOrEmpty(tName.Text))
+        if (picture.Image == null || string.IsNullOrEmpty(tID.Text) || string.IsNullOrEmpty(tAddress.Text) || string.IsNullOrEmpty(tName.Text))
             MessageBox.Show("هل نسيت تكتب بيانات ؟");
         else
         {
@@ -59,20 +57,34 @@ internal class DataSystem
     internal static void ShowAll(Form f)
     {
         Form formData = new Form();
-        TextBox textData = new TextBox();
         formData.Text = "ALL DATA";
-        formData.Site = f.Site;
+        formData.Size = new Size(1000, 1000);
         formData.Font = f.Font;
         formData.StartPosition = FormStartPosition.CenterScreen;
-        textData.Multiline = true;
-        textData.Dock = DockStyle.Fill;
-        textData.ReadOnly = true;
+        formData.AutoScroll = true;
 
         using StreamReader reader = new StreamReader("Save.txt");
-        textData.Text = reader.ReadToEnd();
+        string line;
+        int yPos = 15;
+        while ((line = reader.ReadLine()) is not null)
+        {
+            Label t = new Label();
+            t.Location = new Point(300, yPos);
+            t.Width = 150;
+            t.Text = line;
+
+            PictureBox picture = new PictureBox();
+            picture.Location = new Point(590, yPos);
+            picture.Size = new Size(200, 200);
+            picture.SizeMode = PictureBoxSizeMode.StretchImage;
+            picture.Image = Image.FromFile("images/" + line.Split(';')[0] + ".jpg");
+         
+            formData.Controls.Add(t);
+            formData.Controls.Add(picture);
+            yPos += 212;
+        }
         reader.Close();
 
-        formData.Controls.Add(textData);
         formData.ShowDialog();
     }
 }
