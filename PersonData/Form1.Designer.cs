@@ -39,28 +39,36 @@
             ShowAll = new Button();
             GetPerson = new Button();
             NewP = new Button();
-            pictureBox1 = new PictureBox();
+            pImage = new PictureBox();
             AddImage = new Button();
             openFileDialog1 = new OpenFileDialog();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            tPhone = new TextBox();
+            label6 = new Label();
+            tDate = new DateTimePicker();
+            label5 = new Label();
+            ((System.ComponentModel.ISupportInitialize)pImage).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(512, 82);
+            label1.ForeColor = SystemColors.HighlightText;
+            label1.Location = new Point(367, 51);
             label1.Name = "label1";
-            label1.Size = new Size(381, 65);
+            label1.Size = new Size(591, 65);
             label1.TabIndex = 0;
-            label1.Text = "معلومات الشخص";
+            label1.Text = "شاشة ادخال بيانات الاشخاص";
             // 
             // label2
             // 
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.HighlightText;
             label2.Location = new Point(739, 192);
             label2.Name = "label2";
             label2.Size = new Size(146, 37);
@@ -71,8 +79,10 @@
             // 
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(814, 264);
+            label3.ForeColor = SystemColors.HighlightText;
+            label3.Location = new Point(822, 263);
             label3.Name = "label3";
             label3.Size = new Size(63, 37);
             label3.TabIndex = 2;
@@ -83,8 +93,10 @@
             // 
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(805, 334);
+            label4.ForeColor = SystemColors.HighlightText;
+            label4.Location = new Point(812, 334);
             label4.Name = "label4";
             label4.Size = new Size(81, 37);
             label4.TabIndex = 3;
@@ -94,8 +106,9 @@
             // tID
             // 
             tID.Anchor = AnchorStyles.None;
-            tID.Location = new Point(512, 202);
+            tID.Location = new Point(511, 202);
             tID.Name = "tID";
+            tID.RightToLeft = RightToLeft.No;
             tID.Size = new Size(220, 32);
             tID.TabIndex = 4;
             tID.TextAlign = HorizontalAlignment.Right;
@@ -103,8 +116,9 @@
             // tAddress
             // 
             tAddress.Anchor = AnchorStyles.None;
-            tAddress.Location = new Point(512, 335);
+            tAddress.Location = new Point(511, 335);
             tAddress.Name = "tAddress";
+            tAddress.RightToLeft = RightToLeft.No;
             tAddress.Size = new Size(220, 32);
             tAddress.TabIndex = 5;
             tAddress.TextAlign = HorizontalAlignment.Right;
@@ -112,8 +126,9 @@
             // tName
             // 
             tName.Anchor = AnchorStyles.None;
-            tName.Location = new Point(513, 270);
+            tName.Location = new Point(512, 270);
             tName.Name = "tName";
+            tName.RightToLeft = RightToLeft.No;
             tName.Size = new Size(220, 32);
             tName.TabIndex = 6;
             tName.TextAlign = HorizontalAlignment.Right;
@@ -123,7 +138,7 @@
             Exet.Anchor = AnchorStyles.None;
             Exet.BackColor = Color.Red;
             Exet.ForeColor = Color.White;
-            Exet.Location = new Point(318, 421);
+            Exet.Location = new Point(318, 615);
             Exet.Name = "Exet";
             Exet.Size = new Size(91, 40);
             Exet.TabIndex = 7;
@@ -134,7 +149,7 @@
             // ShowAll
             // 
             ShowAll.Anchor = AnchorStyles.None;
-            ShowAll.Location = new Point(456, 420);
+            ShowAll.Location = new Point(456, 614);
             ShowAll.Name = "ShowAll";
             ShowAll.Size = new Size(136, 40);
             ShowAll.TabIndex = 8;
@@ -145,35 +160,35 @@
             // GetPerson
             // 
             GetPerson.Anchor = AnchorStyles.None;
-            GetPerson.Location = new Point(643, 421);
+            GetPerson.Location = new Point(637, 615);
             GetPerson.Name = "GetPerson";
-            GetPerson.Size = new Size(91, 40);
+            GetPerson.Size = new Size(139, 40);
             GetPerson.TabIndex = 9;
-            GetPerson.Text = "بحث";
+            GetPerson.Text = "البحث والتعديل";
             GetPerson.UseVisualStyleBackColor = true;
-            GetPerson.Click += GetPerson_Click;
+            GetPerson.Click += ShowPerson_Click;
             // 
             // NewP
             // 
             NewP.Anchor = AnchorStyles.None;
-            NewP.Location = new Point(782, 421);
+            NewP.Location = new Point(822, 615);
             NewP.Name = "NewP";
             NewP.Size = new Size(136, 40);
             NewP.TabIndex = 10;
-            NewP.Text = "شخص جديد";
+            NewP.Text = "حغظ";
             NewP.UseVisualStyleBackColor = true;
             NewP.Click += NewPerson_Click;
             // 
-            // pictureBox1
+            // pImage
             // 
-            pictureBox1.Anchor = AnchorStyles.None;
-            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Location = new Point(985, 202);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(165, 169);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 11;
-            pictureBox1.TabStop = false;
+            pImage.Anchor = AnchorStyles.None;
+            pImage.BorderStyle = BorderStyle.FixedSingle;
+            pImage.Location = new Point(985, 202);
+            pImage.Name = "pImage";
+            pImage.Size = new Size(165, 169);
+            pImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            pImage.TabIndex = 11;
+            pImage.TabStop = false;
             // 
             // AddImage
             // 
@@ -190,13 +205,65 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // tPhone
+            // 
+            tPhone.Anchor = AnchorStyles.None;
+            tPhone.Location = new Point(511, 399);
+            tPhone.Name = "tPhone";
+            tPhone.RightToLeft = RightToLeft.No;
+            tPhone.Size = new Size(220, 32);
+            tPhone.TabIndex = 14;
+            tPhone.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.None;
+            label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
+            label6.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = SystemColors.HighlightText;
+            label6.Location = new Point(744, 464);
+            label6.Name = "label6";
+            label6.Size = new Size(149, 37);
+            label6.TabIndex = 15;
+            label6.Text = "تاريخ الميلاد";
+            label6.TextAlign = ContentAlignment.TopRight;
+            // 
+            // tDate
+            // 
+            tDate.Format = DateTimePickerFormat.Short;
+            tDate.Location = new Point(512, 464);
+            tDate.Name = "tDate";
+            tDate.RightToLeft = RightToLeft.No;
+            tDate.Size = new Size(220, 32);
+            tDate.TabIndex = 16;
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.None;
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.HighlightText;
+            label5.Location = new Point(757, 397);
+            label5.Name = "label5";
+            label5.Size = new Size(136, 37);
+            label5.TabIndex = 13;
+            label5.Text = "رقم الهاتف";
+            label5.TextAlign = ContentAlignment.TopRight;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Desktop;
             ClientSize = new Size(1258, 750);
+            Controls.Add(tDate);
+            Controls.Add(label6);
+            Controls.Add(tPhone);
+            Controls.Add(label5);
             Controls.Add(AddImage);
-            Controls.Add(pictureBox1);
+            Controls.Add(pImage);
             Controls.Add(NewP);
             Controls.Add(GetPerson);
             Controls.Add(ShowAll);
@@ -208,13 +275,13 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Font = new Font("Segoe UI", 14F);
+            Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             Margin = new Padding(5);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "person data";
+            Text = "شاشة ادخال بيانات الاشخاص";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pImage).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -232,8 +299,12 @@
         private Button ShowAll;
         private Button GetPerson;
         private Button NewP;
-        private PictureBox pictureBox1;
+        private PictureBox pImage;
         private Button AddImage;
         private OpenFileDialog openFileDialog1;
+        private TextBox tPhone;
+        private Label label6;
+        private DateTimePicker tDate;
+        private Label label5;
     }
 }

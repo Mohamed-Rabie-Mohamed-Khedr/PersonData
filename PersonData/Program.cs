@@ -2,6 +2,7 @@ namespace PersonData
 {
     internal static class Program
     {
+        internal static bool isNewImage = false;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
