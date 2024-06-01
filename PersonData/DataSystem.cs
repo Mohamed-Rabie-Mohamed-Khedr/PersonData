@@ -1,5 +1,4 @@
 ﻿using PersonData;
-using System.Security.Cryptography;
 internal class DataSystem
 {
     static FileStream file;
@@ -120,6 +119,7 @@ internal class DataSystem
             t.AutoSize = true;
             t.ForeColor = Color.White;
             t.Text = line;
+            t.Anchor = AnchorStyles.None;
 
             yPos += 10;
             PictureBox picture = new PictureBox();
@@ -129,6 +129,7 @@ internal class DataSystem
             if (file != null) file.Close();
             file = File.Open($"images/{line.Split(';')[0]}.jpg", FileMode.Open);
             picture.Image = new Bitmap(file);
+            picture.Anchor = AnchorStyles.None;
 
             formData.Controls.Add(t);
             formData.Controls.Add(picture);

@@ -52,6 +52,7 @@
             // 
             // tDate
             // 
+            tDate.Anchor = AnchorStyles.None;
             tDate.Enabled = false;
             tDate.Format = DateTimePickerFormat.Short;
             tDate.Location = new Point(234, 594);

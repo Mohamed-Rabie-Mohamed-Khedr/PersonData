@@ -231,6 +231,7 @@
             // 
             // tDate
             // 
+            tDate.Anchor = AnchorStyles.None;
             tDate.Format = DateTimePickerFormat.Short;
             tDate.Location = new Point(512, 464);
             tDate.Name = "tDate";
