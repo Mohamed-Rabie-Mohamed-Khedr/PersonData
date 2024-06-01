@@ -114,20 +114,22 @@ internal class DataSystem
         string line;
         while ((line = reader.ReadLine()) != null)
         {
+            string[] data = line.Split(';');
+
             Label t = new Label();
-            t.Location = new Point(400, yPos);
+            t.Location = new Point(180, yPos);
             t.AutoSize = true;
             t.ForeColor = Color.White;
-            t.Text = line;
             t.Anchor = AnchorStyles.None;
+            t.RightToLeft = RightToLeft.Yes;
+            t.Text = $"رقم القومي: {data[0]}\nالاسم: {data[1]}\nالعنوان: {data[2]}\nرقم الهاتف: {data[3]}\nتاريخ الميلاد: {data[4]}";
 
-            yPos += 10;
             PictureBox picture = new PictureBox();
             picture.Location = new Point(400, yPos);
             picture.Size = new Size(200, 200);
             picture.SizeMode = PictureBoxSizeMode.StretchImage;
             if (file != null) file.Close();
-            file = File.Open($"images/{line.Split(';')[0]}.jpg", FileMode.Open);
+            file = File.Open($"images/{data[0]}.jpg", FileMode.Open);
             picture.Image = new Bitmap(file);
             picture.Anchor = AnchorStyles.None;
 
