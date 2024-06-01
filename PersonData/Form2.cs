@@ -24,7 +24,7 @@
 
         private void NewImage_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Image|*.jpg;*.png";
+            openFileDialog1.Filter = "Image|*.jpg;*.png;*.jpeg";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 pImage.Image = Image.FromFile(openFileDialog1.FileName);

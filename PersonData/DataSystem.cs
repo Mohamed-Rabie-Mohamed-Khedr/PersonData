@@ -1,4 +1,5 @@
 ﻿using PersonData;
+using System.Security.Cryptography;
 internal class DataSystem
 {
     static FileStream file;
@@ -46,8 +47,7 @@ internal class DataSystem
                 tPhone.Text = data[3];
                 timePicker.Text = data[4];
 
-                if (file != null)
-                    file.Close();
+                if (file != null) file.Close();
                 file = File.Open($"images/{tID.Text}.jpg", FileMode.Open);
                 picture.Image = new Bitmap(file);
             }
@@ -71,7 +71,7 @@ internal class DataSystem
                 if (!string.IsNullOrEmpty(tNID) || Program.isNewImage)
                 {
                     Program.isNewImage = false;
-                    file.Close();
+                    if (file != null) file.Close();
                     File.Delete($"images/{tOID}.jpg");
                     picture.Image.Save($"images/{id}.jpg");
                 }
@@ -83,15 +83,20 @@ internal class DataSystem
 
     static string[]? GetData(string ID)
     {
-        string tAll = File.ReadAllText("Save.txt");
-
-        int index = tAll.IndexOf(ID + ';');
-        if (index == -1)
+        StreamReader reader = new StreamReader("Save.txt");
+        string line;
+        while ((line = reader.ReadLine()) != null)
         {
-            MessageBox.Show("مش موجود شخص دة", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading);
-            return null;
+            if (line.StartsWith(ID + ";"))
+            {
+                reader.Dispose();
+                return line.Split(';');
+            }
         }
-        else return tAll.Substring(index, tAll.IndexOf(Environment.NewLine, index) - index).Split(';');
+
+        reader.Dispose();
+        MessageBox.Show("مش موجود شخص دة", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading);
+        return null;
     }
 
     internal static void ShowAll(Form f)
@@ -105,9 +110,9 @@ internal class DataSystem
         formData.StartPosition = FormStartPosition.CenterScreen;
         formData.AutoScroll = true;
         
-        using StreamReader reader = new StreamReader("Save.txt");
-        string line;
         int yPos = 15;
+        StreamReader reader = new StreamReader("Save.txt");
+        string line;
         while ((line = reader.ReadLine()) != null)
         {
             Label t = new Label();
@@ -121,13 +126,15 @@ internal class DataSystem
             picture.Location = new Point(400, yPos);
             picture.Size = new Size(200, 200);
             picture.SizeMode = PictureBoxSizeMode.StretchImage;
-            picture.Image = Image.FromFile("images/" + line.Split(';')[0] + ".jpg");
-         
+            if (file != null) file.Close();
+            file = File.Open($"images/{line.Split(';')[0]}.jpg", FileMode.Open);
+            picture.Image = new Bitmap(file);
+
             formData.Controls.Add(t);
             formData.Controls.Add(picture);
             yPos += 220;
         }
-        reader.Close();
+        reader.Dispose();
 
         formData.ShowDialog();
     }
